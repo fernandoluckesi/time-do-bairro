@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import { Routes } from './src/Routes';
 
-export default function App() {
+export default function AddPlayer() {
   return (
-    <Routes />
+    <View style={styles.container}>
+      <Text>Add Player</Text>
+      <StatusBar style="auto" />
+    </View>
   );
 }
 
