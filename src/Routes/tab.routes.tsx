@@ -28,7 +28,7 @@ export function TabRoutes() {
         component={Home}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Foundation name="home" color={color} size={size} />
+            <Foundation name="home" color={color} size={30} />
           ),
         }}
       />
@@ -37,7 +37,7 @@ export function TabRoutes() {
         component={Search}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <EvilIcons name="search" color={color} size={size * 1.2} />
+            <EvilIcons name="search" color={color} size={30 * 1.2} />
           ),
         }}
       />
@@ -46,7 +46,7 @@ export function TabRoutes() {
         component={AddPlayer}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="add-circle" color="#8DC73F" size={size} />
+            <Ionicons name="add-circle" color="#8DC73F" size={30} />
           ),
         }}
       />
@@ -55,7 +55,7 @@ export function TabRoutes() {
         component={MyTeams}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="group" color={color} size={size * 0.8} />
+            <FontAwesome name="group" color={color} size={30 * 0.8} />
           ),
         }}
       />
@@ -64,7 +64,7 @@ export function TabRoutes() {
         component={MyProfile}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <UserAvatar size={27} color={color} />
+            <UserAvatar size={30} color={color} />
           ),
         }}
       />
