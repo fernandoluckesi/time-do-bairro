@@ -39,7 +39,7 @@ export const PlayerPosition = styled.Text`
   font-size: 12px;
 `
 
-export const Notification = styled.View``
+export const Notification = styled.TouchableOpacity``
 
 export const NotificationIcon = styled.Image``
 

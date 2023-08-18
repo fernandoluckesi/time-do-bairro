@@ -17,7 +17,7 @@ import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView, StyleSheet, Text } from 'react-native'
 import { UserAvatar } from '../UserAvatar'
 
-export const HeaderHome = () => {
+export const HeaderHome: React.FC = () => {
   return (
     <>
       <SafeAreaViewStyled />

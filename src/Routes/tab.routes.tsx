@@ -10,6 +10,7 @@ import { EvilIcons } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome } from '@expo/vector-icons'
 import { UserAvatar } from '../components/UserAvatar'
+import { HomeStack, MyTeamsStack } from './stack.routes'
 
 const Tab = createBottomTabNavigator()
 
@@ -24,8 +25,8 @@ export function TabRoutes() {
       })}
     >
       <Tab.Screen
-        name="home"
-        component={Home}
+        name="Home Tab"
+        component={HomeStack}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Foundation name="home" color={color} size={30} />
@@ -33,7 +34,7 @@ export function TabRoutes() {
         }}
       />
       <Tab.Screen
-        name="search"
+        name="Search"
         component={Search}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -42,7 +43,7 @@ export function TabRoutes() {
         }}
       />
       <Tab.Screen
-        name="addPlayer"
+        name="Add Player"
         component={AddPlayer}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -51,8 +52,8 @@ export function TabRoutes() {
         }}
       />
       <Tab.Screen
-        name="myTeams"
-        component={MyTeams}
+        name="My Teams Tab"
+        component={MyTeamsStack}
         options={{
           tabBarIcon: ({ color, size }) => (
             <FontAwesome name="group" color={color} size={30 * 0.8} />
@@ -60,11 +61,15 @@ export function TabRoutes() {
         }}
       />
       <Tab.Screen
-        name="myProfile"
+        name="My Profile"
         component={MyProfile}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <UserAvatar size={30} color={color} />
+            <UserAvatar
+              size={30}
+              color={color}
+              source={require('../../assets/icons/profile-img.jpg')}
+            />
           ),
         }}
       />

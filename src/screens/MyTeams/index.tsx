@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { MainContainer } from './styles'
+import { HeaderDefault } from '../../components/HeaderDefault'
+import { MenuList } from '../../components/MenuList'
+import { MenuListItem } from '../../components/MenuListItem'
+import { MainTemplate } from '../../templates/MainTemplate'
 
-export default function MyTeams() {
+export default function MyTeams({ navigation }) {
+  const goBackScreen = () => {
+    navigation.goBack()
+  }
+
+  const navigateToScreen = (screenName) => {
+    navigation.navigate(screenName)
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>My Teams</Text>
-      <StatusBar style="auto" />
-    </View>
+    <MainTemplate title="Meus Times" goBackScreen={goBackScreen}>
+      <MenuList>
+        <MenuListItem
+          icon={require('./../../../assets/icons/clipboard.png')}
+          title="Times que gerencio"
+          onPress={() => navigateToScreen('Teams Manage')}
+        />
+        <MenuListItem
+          icon={require('./../../../assets/icons/handshake.png')}
+          title="Times que faço parte"
+          onPress={() => navigateToScreen('Teams Part Of')}
+        />
+      </MenuList>
+    </MainTemplate>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
