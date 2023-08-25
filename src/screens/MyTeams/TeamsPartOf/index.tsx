@@ -5,6 +5,7 @@ import { MainTemplate } from '../../../templates/MainTemplate'
 import { MenuList } from '../../../components/MenuList'
 import { MenuListItem } from '../../../components/MenuListItem'
 import { SearchBar } from '../../../components/SearchBar'
+import { MenuListContainer, SearchBarContainer } from './styles'
 
 const mockTeams = [
   {
@@ -28,18 +29,22 @@ export const TeamsPartOf: React.FC = ({ navigation }) => {
 
   return (
     <MainTemplate title="Times que faço parte" goBackScreen={goBackScreen}>
-      <SearchBar />
-      <MenuList>
-        {mockTeams.map((team) => {
-          return (
-            <MenuListItem
-              key={team.id}
-              title={team.name}
-              onPress={() => navigateToScreen('Team Details', team.name)}
-            />
-          )
-        })}
-      </MenuList>
+      <SearchBarContainer>
+        <SearchBar />
+      </SearchBarContainer>
+      <MenuListContainer>
+        <MenuList>
+          {mockTeams.map((team) => {
+            return (
+              <MenuListItem
+                key={team.id}
+                title={team.name}
+                onPress={() => navigateToScreen('Team Details', team.name)}
+              />
+            )
+          })}
+        </MenuList>
+      </MenuListContainer>
     </MainTemplate>
   )
 }

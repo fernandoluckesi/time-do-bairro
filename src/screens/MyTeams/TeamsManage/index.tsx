@@ -1,5 +1,5 @@
 import React from 'react'
-import { MainContainer } from './styles'
+import { MainContainer, MenuListContainer, SearchBarContainer } from './styles'
 import { HeaderDefault } from '../../../components/HeaderDefault'
 import { MainTemplate } from '../../../templates/MainTemplate'
 import { MenuList } from '../../../components/MenuList'
@@ -28,18 +28,22 @@ export const TeamsManage: React.FC = ({ navigation }) => {
 
   return (
     <MainTemplate title="Times que gerencio" goBackScreen={goBackScreen}>
-      <SearchBar />
-      <MenuList>
-        {mockTeams.map((team) => {
-          return (
-            <MenuListItem
-              key={team.id}
-              title={team.name}
-              onPress={() => navigateToScreen('Team Details', team.name)}
-            />
-          )
-        })}
-      </MenuList>
+      <SearchBarContainer>
+        <SearchBar />
+      </SearchBarContainer>
+      <MenuListContainer>
+        <MenuList>
+          {mockTeams.map((team) => {
+            return (
+              <MenuListItem
+                key={team.id}
+                title={team.name}
+                onPress={() => navigateToScreen('Team Details', team.name)}
+              />
+            )
+          })}
+        </MenuList>
+      </MenuListContainer>
     </MainTemplate>
   )
 }

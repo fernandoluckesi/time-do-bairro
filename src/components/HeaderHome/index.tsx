@@ -27,7 +27,7 @@ export const HeaderHome: React.FC = () => {
           <PlayerContainer>
             <UserAvatar
               size={50}
-              source={require('./../../../assets/icons/profile-img.jpg')}
+              source={require('./../../../assets/images/profile-img.jpg')}
             />
             <PlayerText>
               <PlayerName>Luiz Fernando</PlayerName>

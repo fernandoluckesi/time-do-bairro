@@ -20,6 +20,11 @@ export default function App() {
     Poppins_600SemiBold,
     Poppins_700Bold,
   })
+
+  if (!fontsLoaded) {
+    return
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Routes />

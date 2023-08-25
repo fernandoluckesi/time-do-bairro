@@ -13,10 +13,15 @@ export const MainTemplate: React.FC<MainTemplateProps> = ({
   title,
   goBackScreen,
   children,
+  sourceRightIcon,
 }) => {
   return (
     <MainContainer>
-      <HeaderDefault title={title} goBackScreen={goBackScreen} />
+      <HeaderDefault
+        title={title}
+        goBackScreen={goBackScreen}
+        sourceRightIcon={sourceRightIcon}
+      />
       <ChildrenContent>{children}</ChildrenContent>
     </MainContainer>
   )

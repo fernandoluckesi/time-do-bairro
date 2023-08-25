@@ -17,9 +17,16 @@ export const Title = styled.Text`
   font-family: ${({ theme }) => theme.fonts.semiBold};
 `
 
-export const ArrowLeft = styled.TouchableOpacity`
-  position: absolute;
+export const LeftIconContainer = styled.TouchableOpacity`
   left: 16px;
+  position: absolute;
 `
 
-export const ArrowLeftIcon = styled.Image``
+export const LeftIcon = styled.Image``
+
+export const RightIconContainer = styled.TouchableOpacity`
+  position: absolute;
+  right: 16px;
+`
+
+export const RightIcon = styled.Image``

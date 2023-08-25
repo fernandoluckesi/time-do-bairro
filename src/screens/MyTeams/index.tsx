@@ -1,4 +1,4 @@
-import { MainContainer } from './styles'
+import { MainContainer, MenuListContainer } from './styles'
 import { HeaderDefault } from '../../components/HeaderDefault'
 import { MenuList } from '../../components/MenuList'
 import { MenuListItem } from '../../components/MenuListItem'
@@ -15,18 +15,20 @@ export default function MyTeams({ navigation }) {
 
   return (
     <MainTemplate title="Meus Times" goBackScreen={goBackScreen}>
-      <MenuList>
-        <MenuListItem
-          icon={require('./../../../assets/icons/clipboard.png')}
-          title="Times que gerencio"
-          onPress={() => navigateToScreen('Teams Manage')}
-        />
-        <MenuListItem
-          icon={require('./../../../assets/icons/handshake.png')}
-          title="Times que faço parte"
-          onPress={() => navigateToScreen('Teams Part Of')}
-        />
-      </MenuList>
+      <MenuListContainer>
+        <MenuList>
+          <MenuListItem
+            icon={require('./../../../assets/icons/clipboard.png')}
+            title="Times que gerencio"
+            onPress={() => navigateToScreen('Teams Manage')}
+          />
+          <MenuListItem
+            icon={require('./../../../assets/icons/handshake.png')}
+            title="Times que faço parte"
+            onPress={() => navigateToScreen('Teams Part Of')}
+          />
+        </MenuList>
+      </MenuListContainer>
     </MainTemplate>
   )
 }
