@@ -1,5 +1,3 @@
-import { Text } from 'react-native'
-
 import { MainContainer, MenuListContainer } from './styles'
 import { HeaderHome } from '../../components/HeaderHome'
 import { MenuList } from '../../components/MenuList'

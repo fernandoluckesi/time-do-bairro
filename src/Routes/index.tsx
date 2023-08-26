@@ -1,9 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { TabRoutes } from './tab.routes'
 import { createStackNavigator } from '@react-navigation/stack'
-import { MainStack } from './stack.routes'
 import { Login } from '../screens/Login'
-import Home from '../screens/Home'
 
 const Stack = createStackNavigator()
 
