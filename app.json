@@ -2,26 +2,27 @@
   "expo": {
     "name": "time-do-bairro",
     "slug": "time-do-bairro",
+    "scheme": "time-do-bairro",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/images/logo-login-screen.png",
+      "resizeMode": "center",
+      "backgroundColor": "#FF7A01"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.timedobairro"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.timedobairro"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -29,6 +30,11 @@
     "packagerOpts": {
       "config": "metro.config.js",
       "sourceExts": ["js", "jsx", "ts", "tsx", "svg"]
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c96f8bf0-7c9f-4c1b-8bcf-b8e8821244e0"
+      }
     }
-   }
+  }
 }

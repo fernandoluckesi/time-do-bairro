@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   ContentContainer,
   Logo,
@@ -16,34 +16,49 @@ import {
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView, StyleSheet, Text } from 'react-native'
 import { UserAvatar } from '../UserAvatar'
+import { UserData } from '../../hooks/useLoadingPageUserData'
+import { NavigationProp } from '@react-navigation/native'
 
-export const HeaderHome: React.FC = () => {
+interface HeaderHomeProps {
+  userData: UserData
+  navigation: NavigationProp<any>
+}
+
+export const HeaderHome: React.FC<HeaderHomeProps> = ({
+  userData,
+  navigation,
+}) => {
+  const navigateToScreen = (screenName) => {
+    navigation.navigate(screenName)
+  }
   return (
     <>
       <SafeAreaViewStyled />
-      <MainContainer>
-        <Logo source={require('./../../../assets/images/logo.png')} />
-        <ContentContainer>
-          <PlayerContainer>
-            <UserAvatar
-              size={50}
-              source={require('./../../../assets/images/profile-img.jpg')}
-            />
-            <PlayerText>
-              <PlayerName>Luiz Fernando</PlayerName>
-              <PlayerPosition>Goleiro</PlayerPosition>
-            </PlayerText>
-          </PlayerContainer>
-          <Notification>
-            <NotificationIcon
-              source={require('./../../../assets/icons/notification.png')}
-            />
-            <NotificationCount>
-              <NotificationText>99</NotificationText>
-            </NotificationCount>
-          </Notification>
-        </ContentContainer>
-      </MainContainer>
+      {userData && (
+        <MainContainer>
+          <Logo source={require('./../../../assets/images/logo.png')} />
+          <ContentContainer>
+            <PlayerContainer>
+              <UserAvatar
+                size={50}
+                source={require('./../../../assets/images/profile-img.jpg')}
+              />
+              <PlayerText>
+                <PlayerName>{userData.name}</PlayerName>
+                <PlayerPosition>{userData.position}</PlayerPosition>
+              </PlayerText>
+            </PlayerContainer>
+            <Notification onPress={() => navigateToScreen('Notifications')}>
+              <NotificationIcon
+                source={require('./../../../assets/icons/notification.png')}
+              />
+              <NotificationCount>
+                <NotificationText>99</NotificationText>
+              </NotificationCount>
+            </Notification>
+          </ContentContainer>
+        </MainContainer>
+      )}
     </>
   )
 }

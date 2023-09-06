@@ -7,6 +7,7 @@ import { TeamDetails } from '../screens/MyTeams/TeamDetails'
 import MyProfile from '../screens/MyProfile'
 import { Login } from '../screens/Login'
 import { TabRoutes } from './tab.routes'
+import { Notifications } from '../screens/Notifications'
 
 const Stack = createStackNavigator()
 
@@ -20,6 +21,7 @@ export function HomeStack() {
     >
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="My Teams" component={TeamsManage} />
+      <Stack.Screen name="Notifications" component={Notifications} />
     </Stack.Navigator>
   )
 }

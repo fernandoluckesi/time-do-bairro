@@ -1,7 +1,9 @@
 import styled from 'styled-components/native'
+import { Platform } from 'react-native'
 
 export const SafeAreaViewStyled = styled.SafeAreaView`
   background-color: ${({ theme }) => theme.colors.primary};
+  height: ${() => (Platform.OS === 'android' ? '30px' : '0')};
 `
 
 export const MainContainer = styled.View`
@@ -46,7 +48,7 @@ export const NotificationIcon = styled.Image``
 export const NotificationCount = styled.View`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.secondary};
-  border-radius: 50%;
+  border-radius: 12px;
   height: 24px;
   justify-content: center;
   position: absolute;

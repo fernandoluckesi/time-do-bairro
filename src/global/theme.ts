@@ -3,6 +3,7 @@ export default {
     primary: '#FF7A01',
     background: '#F5F6FA',
     shapeLight: '#FFFFFF',
+    shapeDark: '#000000',
     secondary: '#8DC73F',
     inactive: '#CECECE',
     textGray: '#AAAAAA',

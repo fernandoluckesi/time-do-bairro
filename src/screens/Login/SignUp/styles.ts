@@ -1,6 +1,6 @@
 import styled from 'styled-components/native'
 
-export const MainContainer = styled.View`
+export const MainContainer = styled.ScrollView`
   background-color: ${({ theme }) => theme.colors.shapeLight};
-  flex: 1;
+  padding-top: 32px;
 `

@@ -7,24 +7,29 @@ import {
   ItemTitle,
   MainContainer,
 } from './styles'
-import { Image } from 'react-native-svg'
-import { ImageProps, ImageSourcePropType } from 'react-native'
+import { ImageSourcePropType } from 'react-native'
+import { NavigationProp } from '@react-navigation/native'
 
-export type MenuListItemProps = {
-  icon?: () => any
+export interface MenuListItemProps {
+  icon?: ImageSourcePropType
   title: string
   subtitle?: string
-  onPress: () => any
+  navigation: NavigationProp<any>
+  screen: string
 }
 
 export const MenuListItem: React.FC<MenuListItemProps> = ({
   icon,
   title,
   subtitle,
-  onPress,
+  navigation,
+  screen,
 }) => {
+  const navigateToScreen = () => {
+    navigation.navigate(screen)
+  }
   return (
-    <MainContainer onPress={onPress}>
+    <MainContainer onPress={navigateToScreen}>
       <ItemIcon source={icon} />
       <ItemTextContent>
         <ItemTitle>{title}</ItemTitle>

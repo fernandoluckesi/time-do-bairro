@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { Routes } from './src/Routes'
 import { ThemeProvider } from 'styled-components/native'
 import theme from './src/global/theme'
+import { NativeBaseProvider } from 'native-base'
 
 import {
   useFonts,
@@ -26,8 +27,10 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <Routes />
-    </ThemeProvider>
+    <NativeBaseProvider>
+      <ThemeProvider theme={theme}>
+        <Routes />
+      </ThemeProvider>
+    </NativeBaseProvider>
   )
 }

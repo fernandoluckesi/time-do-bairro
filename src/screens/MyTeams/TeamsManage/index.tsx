@@ -5,6 +5,7 @@ import { MainTemplate } from '../../../templates/MainTemplate'
 import { MenuList } from '../../../components/MenuList'
 import { MenuListItem } from '../../../components/MenuListItem'
 import { SearchBar } from '../../../components/SearchBar'
+import { NavigationProp } from '@react-navigation/native'
 
 const mockTeams = [
   {
@@ -17,7 +18,11 @@ const mockTeams = [
   },
 ]
 
-export const TeamsManage: React.FC = ({ navigation }) => {
+interface TeamsManage {
+  navigation: NavigationProp<any>
+}
+
+export const TeamsManage: React.FC<TeamsManage> = ({ navigation }) => {
   const goBackScreen = () => {
     navigation.goBack()
   }

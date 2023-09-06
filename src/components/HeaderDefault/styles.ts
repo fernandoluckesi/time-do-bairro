@@ -1,7 +1,9 @@
 import styled from 'styled-components/native'
+import { Platform } from 'react-native'
 
 export const SafeAreaViewStyled = styled.SafeAreaView`
   background-color: ${({ theme }) => theme.colors.primary};
+  height: ${() => (Platform.OS === 'android' ? '30px' : '0')};
 `
 
 export const MainContainer = styled.View`
