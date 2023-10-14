@@ -16,12 +16,12 @@ import theme from '../../global/theme'
 import { MaterialIcons } from '@expo/vector-icons'
 import { ButtonDefault } from '../../components/ButtonDefault'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { Navigations } from '../../utils/navigations'
+import { useUserData } from '../../hooks/useUserData'
 
 export default function MyProfile({ navigation }) {
-  const goBackScreen = () => {
-    navigation.goBack()
-  }
-
+  const { userData } = useUserData()
+  console.log({ userData: userData.teamOfPart })
   const dataTable = [
     {
       leftColumn: 'Posição',
@@ -33,62 +33,82 @@ export default function MyProfile({ navigation }) {
     },
     {
       leftColumn: 'Time(s) que participa',
-      rightColumn: [
-        { id: 1, name: 'Inter de Meião' },
-        { id: 2, name: 'Bigode Grosso Futebol e Samba' },
-      ],
+      rightColumn: userData.teamOfPart?.map((team) => ({
+        id: team.id,
+        name: team.name,
+        onPress: () =>
+          Navigations.navigateToScreen(navigation, 'Team Details', {
+            id: team.id,
+            name: team.name,
+          }),
+      })),
       isList: true,
       colorRightColumn: 'primary',
       onPress: () => null,
     },
     {
       leftColumn: 'Time(s) que administra',
-      rightColumn: [
-        { id: 1, name: 'Inter de Meião' },
-        { id: 2, name: 'Bigode Grosso Futebol e Samba' },
-      ],
+      rightColumn: userData.teamManage?.map((team) => ({
+        id: team.id,
+        name: team.name,
+        onPress: () =>
+          Navigations.navigateToScreen(navigation, 'Team Details', {
+            id: team.id,
+            name: team.name,
+          }),
+      })),
       isList: true,
       colorRightColumn: 'primary',
       onPress: () => null,
       lastLine: true,
     },
   ]
+
   return (
     <MainTemplate
       title="Meu perfil"
-      goBackScreen={goBackScreen}
+      goBackScreen={() => Navigations.goBackScreen(navigation)}
       sourceRightIcon={
         <MaterialIcons name="edit" size={24} color={theme.colors.textLight} />
       }
     >
-      <UserAvatarContainer>
-        <UserAvatar
-          size={100}
-          source={require('../../../assets/images/profile-img.jpg')}
-          color={theme.colors.primary}
-        />
-      </UserAvatarContainer>
-
-      <UserInfosContainer>
-        <UserInfosHeader>
-          <UserInfosTitle>Luiz Fernando</UserInfosTitle>
-          <UserInfosSubtitle>@luiz.fernando</UserInfosSubtitle>
-        </UserInfosHeader>
-        <InfosTable dataTable={dataTable} />
-      </UserInfosContainer>
-      <ExitButtonContainer>
-        <ButtonDefault
-          backgroundColor="alert"
-          text="Sair"
-          iconChildren={
-            <MaterialCommunityIcons
-              name="location-exit"
-              size={24}
-              color={theme.colors.shapeLight}
+      {userData ? (
+        <>
+          <UserAvatarContainer>
+            <UserAvatar
+              size={100}
+              source={require('../../../assets/images/profile-img.jpg')}
+              color={theme.colors.primary}
             />
-          }
-        />
-      </ExitButtonContainer>
+          </UserAvatarContainer>
+
+          <UserInfosContainer>
+            <UserInfosHeader>
+              <UserInfosTitle>Luiz Fernando</UserInfosTitle>
+              <UserInfosSubtitle>@luiz.fernando</UserInfosSubtitle>
+            </UserInfosHeader>
+            <InfosTable dataTable={dataTable} />
+          </UserInfosContainer>
+          <ExitButtonContainer>
+            <ButtonDefault
+              backgroundColor="alert"
+              text="Sair"
+              iconChildren={
+                <MaterialCommunityIcons
+                  name="location-exit"
+                  size={24}
+                  color={theme.colors.shapeLight}
+                />
+              }
+            />
+          </ExitButtonContainer>
+        </>
+      ) : (
+        <>
+          {' '}
+          <Text>Carregando</Text>{' '}
+        </>
+      )}
     </MainTemplate>
   )
 }

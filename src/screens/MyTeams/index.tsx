@@ -3,29 +3,29 @@ import { HeaderDefault } from '../../components/HeaderDefault'
 import { MenuList } from '../../components/MenuList'
 import { MenuListItem } from '../../components/MenuListItem'
 import { MainTemplate } from '../../templates/MainTemplate'
+import { Navigations } from '../../utils/navigations'
 
 export default function MyTeams({ navigation }) {
-  const goBackScreen = () => {
-    navigation.goBack()
-  }
-
-  const navigateToScreen = (screenName) => {
-    navigation.navigate(screenName)
-  }
-
   return (
-    <MainTemplate title="Meus Times" goBackScreen={goBackScreen}>
+    <MainTemplate
+      title="Meus Times"
+      goBackScreen={() => Navigations.goBackScreen(navigation)}
+    >
       <MenuListContainer>
         <MenuList>
           <MenuListItem
             icon={require('./../../../assets/icons/clipboard.png')}
             title="Times que gerencio"
-            onPress={() => navigateToScreen('Teams Manage')}
+            onPress={() =>
+              Navigations.navigateToScreen(navigation, 'Teams Manage')
+            }
           />
           <MenuListItem
             icon={require('./../../../assets/icons/handshake.png')}
             title="Times que faço parte"
-            onPress={() => navigateToScreen('Teams Part Of')}
+            onPress={() =>
+              Navigations.navigateToScreen(navigation, 'Teams Part Of')
+            }
           />
         </MenuList>
       </MenuListContainer>

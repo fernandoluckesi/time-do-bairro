@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { MainContainer } from '../../Home/styles'
 import { HeaderDefault } from '../../../components/HeaderDefault'
 import { MainTemplate } from '../../../templates/MainTemplate'
@@ -19,6 +19,8 @@ const mockTeams = [
 ]
 
 export const TeamsPartOf: React.FC = ({ navigation }) => {
+  useEffect(() => {}, [])
+
   const goBackScreen = () => {
     navigation.goBack()
   }

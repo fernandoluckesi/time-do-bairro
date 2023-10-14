@@ -17,7 +17,7 @@ export interface UserData {
   teamManage: TeamsOfUser[]
 }
 
-export const useLoadingPageUserData = () => {
+export const useUserData = () => {
   const [userData, setUserData] = useState<UserData | null>()
   const [isLoading, setIsLoading] = useState(false)
 

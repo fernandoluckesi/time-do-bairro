@@ -16,20 +16,17 @@ export interface MenuListItemProps {
   subtitle?: string
   navigation: NavigationProp<any>
   screen: string
+  routesParams?: Object | number | string
 }
 
 export const MenuListItem: React.FC<MenuListItemProps> = ({
   icon,
   title,
   subtitle,
-  navigation,
-  screen,
+  ...props
 }) => {
-  const navigateToScreen = () => {
-    navigation.navigate(screen)
-  }
   return (
-    <MainContainer onPress={navigateToScreen}>
+    <MainContainer {...props}>
       <ItemIcon source={icon} />
       <ItemTextContent>
         <ItemTitle>{title}</ItemTitle>

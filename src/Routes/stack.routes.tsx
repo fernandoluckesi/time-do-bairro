@@ -51,6 +51,7 @@ export function MyProfileStack() {
       initialRouteName="My Profile"
     >
       <Stack.Screen name="My Profile" component={MyProfile} />
+      <Stack.Screen name="Team Details" component={TeamDetails} />
     </Stack.Navigator>
   )
 }

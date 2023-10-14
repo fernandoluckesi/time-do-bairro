@@ -16,7 +16,7 @@ import {
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView, StyleSheet, Text } from 'react-native'
 import { UserAvatar } from '../UserAvatar'
-import { UserData } from '../../hooks/useLoadingPageUserData'
+import { UserData } from '../../hooks/useUserData'
 import { NavigationProp } from '@react-navigation/native'
 
 interface HeaderHomeProps {

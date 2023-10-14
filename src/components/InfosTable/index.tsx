@@ -40,7 +40,7 @@ export const InfosTable: React.FC<InfosTableProps> = ({ dataTable }) => {
                   return (
                     <TouchableOpacity
                       disabled={!line.onPress}
-                      onPress={line.onPress}
+                      onPress={info.onPress}
                     >
                       <RightColumnText
                         numberOfLines={1}
